@@ -1,0 +1,59 @@
+disabled_rules:
+  - todo # we simply want these
+  - line_length
+  - closure_parameter_position # disabled because we use this differently as part of our Swift guidelines (we dedicate a seperate line to arguments)
+  - void_return # we use () -> () instead of () -> Void
+  - mark # this rule was too stringent
+  - cyclomatic_complexity # this rule did not check rightly for complexity of functions, e.g. switch statements already led to too much complexity
+  - nesting
+  - redundant_string_enum_value
+  - function_body_length
+opt_in_rules:
+  - closure_spacing # single whitespace before and after closure accolade {}
+  - weak_delegate # checks if delegate is weakly declared if it's a class protocol
+  - redundant_nil_coalescing # checks if nil coalescing is done after a non-optional
+  - operator_usage_whitespace # single whitespace before and after operator such as - + /
+  - closure_end_indentation # validates closure closing braces in the right way
+  - fatal_error_message # Checks that fatalError calls have a message
+  - redundant_type_annotation # Variables should not have redundant type definition
+  - file_name # File name should match a type or extension declared in the file (if any)
+  - empty_collection_literal # Prefer checking isEmpty over comparing collection to an empty array or dictionary literal
+  - empty_count # Prefer checking isEmpty over comparing count to zero
+  - force_unwrapping # Force unwrapping should be avoided
+  - empty_string # Prefer checking isEmpty over comparing string to an empty string literal.
+  - implicit_return # Prefer implicit returns in closures, functions and getters.
+  - indentation_width
+
+analyzer_rules:
+  - unused_import # Checks unused imports
+  - unused_declaration # Checks for unused code
+custom_rules:
+  closing_braces_whiteline:
+    name: "Whiteline between closing braces"
+    regex: "(?<=\n)(( |\t)*\n){1,}( |\t)*\\}" # Matches two closing curly braces with a whiteline inbetween
+    message: "Remove whitelines between closing braces"
+    severity: warning 
+  array_initialization:
+    name: "Array creation"
+    regex: "\\[.+\\]\\(\\)" # Matches "[String]()"
+    message: "Create an array using `var array: [<type>] = []`"
+    severity: warning
+file_length:
+  - 400 # if your file is this long, you are likely able to split it up into seperate functionality
+type_body_length:
+  - 300 # warning
+  - 650 # error
+type_name:
+  min_length: 3
+  max_length: 44
+identifier_name:
+  min_length: 2
+  max_length: 41
+  excluded:
+    - id # to prevent variable from being named `id`, maybe something extra here?
+file_name:
+  excluded: ["XCAssets+Generated.swift", "Strings+Generated.swift"]
+large_tuple:
+  - 3
+indentation_width:
+  include_comments: false
