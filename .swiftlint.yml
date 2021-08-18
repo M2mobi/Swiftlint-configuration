@@ -32,7 +32,7 @@ custom_rules:
     name: "Whiteline between closing braces"
     regex: "(?<=\n)(( |\t)*\n){1,}( |\t)*\\}" # Matches two closing curly braces with a whiteline inbetween
     message: "Remove whitelines between closing braces"
-    severity: warning 
+    severity: warning
   array_initialization:
     name: "Array creation"
     regex: "\\[.+\\]\\(\\)" # Matches "[String]()"
@@ -47,10 +47,8 @@ type_name:
   min_length: 3
   max_length: 44
 identifier_name:
-  min_length: 2
-  max_length: 41
-  excluded:
-    - id # to prevent variable from being named `id`, maybe something extra here?
+  min_length: 1
+  max_length: 60
 file_name:
   excluded: ["XCAssets+Generated.swift", "Strings+Generated.swift"]
 large_tuple:
