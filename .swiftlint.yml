@@ -9,6 +9,7 @@ disabled_rules:
   - redundant_string_enum_value
   - function_body_length
   - void_function_in_ternary
+  - closure_parameter_position # we do the opposite of this rule
 opt_in_rules:
   - closure_spacing # single whitespace before and after closure accolade {}
   - weak_delegate # checks if delegate is weakly declared if it's a class protocol
